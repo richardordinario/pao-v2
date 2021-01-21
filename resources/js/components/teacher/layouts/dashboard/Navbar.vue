@@ -1,15 +1,9 @@
 <template>
     <section>
-        <!-- <v-btn
-        rounded
-        class="btn white--text"
-        :class="$vuetify.breakpoint.smAndDown ? '' : 'mr-16'"
-        color="#08CDFF" elevation="0">Tour me Around</v-btn> -->
-
         <v-menu
-            bottom
-            left
-            offset-y
+        bottom
+        left
+        offset-y
           >
             <template v-slot:activator="{ on, attrs }">
                 <v-btn
@@ -19,7 +13,7 @@
                 small
                 v-bind="attrs"
                 v-on="on"
-                class="mx-2"
+                class="mx-2 avatar"
                 >
                     <v-img src="/assets/images/avatar/avatar1.png" class="img-fluid" height="40" width="40"></v-img>
                 </v-btn>

@@ -16,7 +16,6 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -25,6 +24,8 @@
     </div>
     @if(Auth::guard('teacher')->check())
         <script src="{{asset('js/teacher.js')}}"></script>
+    @elseif(Auth::guard('admin')->check())
+        <script src="{{asset('js/admin.js')}}"></script>
     @else
         <script src="{{asset('js/login.js')}}"></script>
     @endif

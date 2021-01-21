@@ -11,10 +11,10 @@ const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .js('resources/js/landing.js', 'public/js')
+mix.js('resources/js/landing.js', 'public/js')
     .js('resources/js/login.js', 'public/js')
     .js('resources/js/teacher.js', 'public/js')
+    .js('resources/js/admin.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .webpackConfig({
         plugins: [

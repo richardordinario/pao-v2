@@ -14,4 +14,7 @@ class AuthController extends Controller
         }
         return view('auth.login');
     }
+    public function registerTeacher() {
+        return 'register teacher';
+    }
 }

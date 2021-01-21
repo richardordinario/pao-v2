@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -95999,6 +95999,17 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
 /***/ }),
 
+/***/ "./resources/sass/app.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/app.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/landing.scss":
 /*!*************************************!*\
   !*** ./resources/sass/landing.scss ***!
@@ -96029,14 +96040,15 @@ if(false) {}
 
 /***/ }),
 
-/***/ 1:
-/*!***************************************!*\
-  !*** multi ./resources/js/landing.js ***!
-  \***************************************/
+/***/ 0:
+/*!*****************************************************************!*\
+  !*** multi ./resources/js/landing.js ./resources/sass/app.scss ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\pci_project\paov2\resources\js\landing.js */"./resources/js/landing.js");
+__webpack_require__(/*! C:\xampp\htdocs\pci_project\pao-v2\resources\js\landing.js */"./resources/js/landing.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\pci_project\pao-v2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

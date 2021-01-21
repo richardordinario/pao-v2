@@ -23,6 +23,5 @@
     <div id="app">
         @yield('content')
     </div>
-    <script src="/js/teacher.js"></script>
 </body>
 </html>

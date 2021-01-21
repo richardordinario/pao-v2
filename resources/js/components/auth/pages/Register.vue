@@ -6,7 +6,6 @@
                     <v-col cols="12" sm="6" md="8" lg="8" xl="6">
                         <v-card elevation="12">
                             <v-row no-gutters>
-                                <v-col cols="12" md="6" class="green hidden-sm-and-down"></v-col>
                                 <v-col cols="12" md="6" class="login-form">
                                     <v-card-text>
                                         <v-img src="assets/images/landing/bg-top.png" class="top-img"></v-img>
@@ -45,6 +44,7 @@
                                     <img src="assets/images/landing/bg-bottom.png" class="bottom-img img-fluid">
                                     </v-card-text>
                                 </v-col>
+                                <v-col cols="12" md="6" class="green hidden-sm-and-down"></v-col>
                             </v-row>
                         </v-card>
                     </v-col>
@@ -55,7 +55,8 @@
 </template>
 
 <script>
-    import Auth from '../../apis/modules/Auth'
+    import Auth from '../../../apis/modules/Auth'
+
     export default {
         data: () => ({
             form: {

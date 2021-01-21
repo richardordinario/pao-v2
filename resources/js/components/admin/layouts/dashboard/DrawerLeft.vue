@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="d-flex flex-column justify-center align-center mt-10">
-            <v-avatar :size="mini ? '62' : '92'" class="avatar">
+            <v-avatar :size="mini ? '62' : '92'">
                 <img src="/assets/images/avatar/avatar1.png" alt="John">
             </v-avatar>
             <p class="text-subtitle-1 mb-0 pb-0">John Cruz</p>
