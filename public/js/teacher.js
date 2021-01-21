@@ -1970,6 +1970,9 @@ __webpack_require__.r(__webpack_exports__);
       mini: false
     };
   },
+  mounted: function mounted() {
+    this.mini = this.$vuetify.breakpoint.mdAndDown;
+  },
   watch: {
     group: function group() {
       this.drawer = false;

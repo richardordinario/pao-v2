@@ -57,9 +57,13 @@
             drawer: false,
             mini: false,
         }),
+        mounted() {
+            this.mini = this.$vuetify.breakpoint.mdAndDown
+        },
         watch: {
             group() {
                 this.drawer = false;
+
             },
         },
     }
