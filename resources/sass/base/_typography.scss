@@ -1,0 +1,7 @@
+@font-face {
+    font-family: "ProductSans";
+    src: url('/fonts/ProductSansRegular.ttf');
+}
+
+* { font-family: ProductSans !important; }
+.btn-normal { text-transform: capitalize !important; }

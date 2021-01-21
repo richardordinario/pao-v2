@@ -1,0 +1,10 @@
+@import "../../base/base";
+@import "../../helper/helper";
+@import "../../layouts/layouts";
+
+.main {
+    background-color: #E5E5E5 !important;
+}
+.success {
+    color: color('success') !important;
+}
