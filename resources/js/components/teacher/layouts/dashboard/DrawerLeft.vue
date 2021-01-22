@@ -11,7 +11,7 @@
         <div class="text-center mt-5 mb-0 pb-0">
             <v-btn color="#4B9E56" class="white--text btn-normal text-center" rounded>
                 <v-icon small>mdi-plus</v-icon>
-                <span v-if="!mini">Add Course</span>
+                <span v-if="!mini" @click.stop="dialog = true">Add Course</span>
             </v-btn>
         </div>
         <v-list dense rounded>
@@ -31,14 +31,19 @@
                 </router-link>
             </div>
         </v-list>
+        <v-dialog v-model="dialog" max-width="500">
+            <SubjectDialog/>
+        </v-dialog>
     </section>
 </template>
 
 <script>
+    import SubjectDialog from '../cards/AddSubject'
     export default {
         props: {
             mini: Boolean
         },
+        components: { SubjectDialog },
         data() {
             return {
                 navs: [
@@ -79,12 +84,9 @@
                             },
                         ]
                     }
-                ]
+                ],
+                dialog: false
             }
         },
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
