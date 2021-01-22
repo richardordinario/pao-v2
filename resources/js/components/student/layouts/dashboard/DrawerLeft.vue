@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="d-flex flex-column justify-center align-center mt-10">
-            <v-avatar :size="mini ? '62' : '92'">
+            <v-avatar :size="mini ? '62' : '92'" class="avatar">
                 <img src="/assets/images/avatar/avatar1.png" alt="John">
             </v-avatar>
             <p class="text-subtitle-1 mb-0 pb-0">John Cruz</p>
@@ -18,7 +18,7 @@
             <div v-for="nav in navs" :key="nav.id">
                 <v-subheader>{{nav.header}}</v-subheader>
                 <router-link v-for="(list, i) in nav.list" :key="i" :to="list.route">
-                    <v-list-item :class="$route.name == list.name ? 'grey lighten-3' : ''">
+                    <v-list-item :class="$route.name == list.name ? 'grey lighten-4' : ''">
                         <v-list-item-icon>
                             <v-icon color="#545454" :class="!mini ? 'nav__list-icon' : ''">{{list.icon}}</v-icon>
                         </v-list-item-icon>
@@ -52,17 +52,16 @@
                                 route: '/home'
                             },
                             {
-                                title: 'Courses',
+                                title: 'Course Manager',
                                 icon: 'mdi-book',
                                 name: 'Courses',
                                 route: '/courses'
                             },
-                            {
-                                title: 'Results',
-                                icon: 'mdi-book',
-                                name: 'Results',
-                                route: '/courses'
-                            },
+                            // {
+                            //     title: 'My Students',
+                            //     icon: 'mdi-school',
+                            //     route: '/students'
+                            // },
                             {
                                 title: 'Forum',
                                 icon: 'mdi-comment-alert',
@@ -74,14 +73,9 @@
                         header: 'ACCOUNT',
                         list: [
                             {
-                                title: 'Students',
-                                icon: 'mdi-school',
-                                route: '/students'
-                            },
-                            {
-                                title: 'Teacher',
-                                icon: 'mdi-school',
-                                route: '/students'
+                                title: 'My Profile',
+                                icon: 'mdi-account',
+                                route: 'Dashboard'
                             },
                         ]
                     }

@@ -2,22 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', 'AuthController@index');
+Route::get('/login', 'AuthController@showlogin');
+Route::post('/login', 'Auth\LoginController@login');
+Route::get('/register', 'AuthController@register');
+Route::post('/register', 'Auth\RegisterController@register');
+Route::post('/logout', 'Auth\LoginController@logout');
 
 Route::group(['prefix' => 'teacher'], function () {
     Route::post('/login', 'TeacherAuth\LoginController@login');
@@ -30,7 +23,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
     Route::post('/login', 'AdminAuth\LoginController@login');
     Route::post('/logout', 'AdminAuth\LoginController@logout')->name('logout');
-
     Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'AdminAuth\RegisterController@register');
 });
@@ -42,10 +34,15 @@ Route::group(['prefix'=>'teacher', 'middleware' => ['teacher']], function() {
 Route::group(['prefix'=>'admin', 'middleware' => ['admin']], function() {
 
 });
+Route::get('/{vue_capture?}', 'AuthController@index')->where('vue_capture', '[\/\w\.-]*');
 
-Route::get('{any}', function () {
-    return view('home');
-})->where('any', '.*');
+// Route::get('{any}', function () {
+//     return view('home');
+// })->where('any', '.*');
+
+// Route::get('/{vue_capture?}', function () {
+//     return view('home');
+// })->where('vue_capture', '[\/\w\.-]*');
 
 // Auth::routes();
 

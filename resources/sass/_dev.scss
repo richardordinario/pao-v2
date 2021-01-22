@@ -1,0 +1,20 @@
+.btn-normal {
+    text-transform: capitalize !important;
+}
+.main {
+    background-color: #E5E5E5 !important;
+}
+.success {
+    color: color('success') !important;
+}
+.avatar {
+    border: 2px solid rgba(84, 84, 84, 0.45) !important;
+}
+.main-404 {
+    background-image: url('/assets/images/landing/404.png');
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

@@ -9,12 +9,25 @@ class AuthController extends Controller
 {
     public function index(Request $request)
     {
-        if (Auth::guard('teacher')->check()) {
-            return redirect('teacher/');
+        if($request->path() !== 'login') {
+            if(Auth::check()) {
+                return view('home');
+            }
+            if(Auth::guard('admin')->check()) {
+                return view('home');
+            }
+            if(Auth::guard('teacher')->check()) {
+                return view('home');
+            }
+            return redirect('/404');
         }
+        return view('home');
+    }
+    public function showlogin() {
         return view('auth.login');
     }
-    public function registerTeacher() {
-        return 'register teacher';
+    public function register() {
+        return view('auth.register');
     }
+   
 }

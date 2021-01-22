@@ -53,6 +53,9 @@
                     location.href= '/'
                 })
             }
+        },
+        mounted() {
+            console.log(this.role)
         }
     }
 </script>

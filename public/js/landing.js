@@ -1944,8 +1944,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       redirect: {
-        'text': 'Login',
-        'href': '/login'
+        text: 'Login',
+        href: '/login'
       }
     };
   },
@@ -1953,15 +1953,8 @@ __webpack_require__.r(__webpack_exports__);
     this.guard = GUARD.user;
 
     if (this.guard) {
-      switch (GUARD.role) {
-        case 'teacher':
-          this.redirect.text = this.guard.name;
-          this.redirect.href = '/' + GUARD.role;
-          break;
-
-        default:
-          break;
-      }
+      this.redirect.text = this.guard.name;
+      this.redirect.href = '/' + GUARD.role + '/home';
     }
   }
 });
@@ -40010,7 +40003,7 @@ var render = function() {
             [
               _c(
                 "v-flex",
-                { attrs: { xs12: "", sm12: "", md10: "", lg10: "" } },
+                { attrs: { xs12: "", sm12: "", md12: "", lg12: "", xl10: "" } },
                 [
                   _c(
                     "v-app-bar",
@@ -40030,9 +40023,11 @@ var render = function() {
                         "v-toolbar-items",
                         { staticClass: "px-10" },
                         [
-                          _c("v-btn", { attrs: { text: "" } }, [
-                            _vm._v("Home")
-                          ]),
+                          _c(
+                            "v-btn",
+                            { staticClass: "btn-normal", attrs: { text: "" } },
+                            [_vm._v("Home")]
+                          ),
                           _vm._v(" "),
                           _c("v-btn", { attrs: { text: "" } }, [
                             _vm._v("Executive Council and CCEO")
@@ -96047,8 +96042,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\pci_project\pao-v2\resources\js\landing.js */"./resources/js/landing.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\pci_project\pao-v2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pci\pao-v2\resources\js\landing.js */"./resources/js/landing.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\pci\pao-v2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

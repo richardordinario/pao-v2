@@ -4,9 +4,10 @@ import Student from '../pages/Student.vue'
 import NotFound from '../../../components/NotFound.vue'
 
 export default [
-    { path: '*', redirect: '/404' },
-    { path: '/404', component: NotFound },
-    {
+    {   path: '/404', 
+        component: NotFound 
+    },
+    {   
         path: '/',
         name: 'Dashboard',
         component: Dashboard
@@ -26,4 +27,9 @@ export default [
         name: 'Students',
         component: Student
     },
+    {   
+        path: '*', 
+        redirect: '/404' 
+    },
+
 ]

@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-content class="parallax">
+        <v-main class="parallax">
             <v-container fill-height>
                 <v-row align="center" justify="center">
                     <v-col cols="12" sm="6" md="8" lg="8" xl="6">
@@ -15,7 +15,7 @@
                                     </v-btn>
                                     <v-row align="center" justify="center" class="mb-10">
                                         <v-btn-toggle
-                                            v-model="text"
+                                            v-model="creds.role"
                                             color="green"
                                             mandatory
                                         >
@@ -29,13 +29,13 @@
                                     placeholder="Email"
                                     type="email"
                                     class="mx-5"
-                                    v-model="form.email"
+                                    v-model="creds.form.email"
                                     ></v-text-field>
                                     <v-text-field
                                     placeholder="Password"
                                     type="password"
                                     class="mx-5"
-                                    v-model="form.password"
+                                    v-model="creds.form.password"
                                     ></v-text-field>
                                     <v-btn absolute right small text plain class="blue--text btn-normal">Forgot your password?</v-btn>
 
@@ -50,24 +50,26 @@
                     </v-col>
                 </v-row>
             </v-container>
-        </v-content>
+        </v-main>
     </v-app>
 </template>
 
 <script>
-    import Auth from '../../../apis/modules/Auth'
     export default {
         data: () => ({
-            form: {
-                email: '',
-                password: ''
+            creds: {
+                role: '',
+                form: {
+                    email: '',
+                    password: '',
+                }
             },
-            text: ''
+            
         }),
         methods: {
             loginBtn() {
-                Auth.login(this.form).then(res => {
-                    location.href = '/'+this.text+'/home'
+                this.$store.dispatch('auth/login', this.creds).then(() => {
+                    location.href = '/'+this.creds.role+'/home'
                 })
             }
         }

@@ -1,18 +1,18 @@
 <template>
     <section>
-        <v-btn text plain @click="logout">Logout</v-btn>
+        <v-btn class="btn-normal" text plain @click="logout">Logout</v-btn>
     </section>
 </template>
 
 <script>
-import Auth from '../../../../apis/modules/Auth'
     export default {
         data:() => ({
             drawer: false,
+            role: GUARD.role
         }),
         methods: {
             logout() {
-                Auth.logout().then(res => {
+                this.$store.dispatch('auth/logout', this.role).then(() => {
                     location.href= '/'
                 })
             }
