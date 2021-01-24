@@ -2495,13 +2495,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2509,41 +2502,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       tabs: null,
-      items: ['All', 'Publish', 'For Approval', 'Drafts'],
-      page: 1
+      items: ['All', 'Publish', 'For Approval', 'Drafts']
     };
   },
   components: {
     AllSubjects: _components_subjects_AllSubjects__WEBPACK_IMPORTED_MODULE_0__["default"],
     Pagination: _components_helper_Pagination__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])('teacherSubject', ['subjects'])), {}, {
-    currentPage: {
-      get: function get() {
-        return this.subjects.current_page;
-      },
-      set: function set(value) {
-        this.$store.commit('teacherSubject/SET_CURRENT_PAGE', value);
-      }
-    },
-    lastPage: {
-      get: function get() {
-        return this.subjects.last_page;
-      }
-    }
-  }),
-  watch: {
-    currentPage: function currentPage(newVal, oldVal) {
-      this.paginatePage(newVal);
-    }
-  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])('teacherSubject', ['subjects'])),
   mounted: function mounted() {
     this.$store.dispatch('teacherSubject/get', 0);
-  },
-  methods: {
-    paginatePage: function paginatePage(pageNumber) {
-      this.$store.dispatch('teacherSubject/get', pageNumber);
-    }
   }
 });
 

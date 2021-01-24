@@ -15,7 +15,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $data = Subject::paginate(3);
+        $data = Subject::paginate(8);
         return response()->json($data);
     }
 

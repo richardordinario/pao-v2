@@ -34,7 +34,12 @@ Route::group(['prefix'=>'teacher', 'middleware' => ['teacher']], function() {
 Route::group(['prefix'=>'admin', 'middleware' => ['admin']], function() {
 
 });
-Route::get('/{vue_capture?}', 'AuthController@index')->where('vue_capture', '[\/\w\.-]*');
+Route::get('teacher/{vue_capture?}', function () {
+    return view('home');
+})->where('vue_capture', '[\/\w\.-]*');
+
+Route::get('teacher/{vue_capture?}', 'AuthController@index')->where('vue_capture', '[\/\w\.-]*');
+Route::get('admin/{vue_capture?}', 'AuthController@index')->where('vue_capture', '[\/\w\.-]*');
 
 // Route::get('{any}', function () {
 //     return view('home');
