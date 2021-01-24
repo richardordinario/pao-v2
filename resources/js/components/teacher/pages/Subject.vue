@@ -35,7 +35,14 @@
                         v-for="item in items"
                         :key="item"
                         >
-                            <AllCourses v-if="item ==='All'"/>
+                            <AllSubjects :subjects="subjects.data" v-if="item ==='All'"/>
+                            <Pagination store="teacherSubject" collection="subjects"/>
+                            <!-- <v-pagination
+                            v-model="currentPage"
+                            :length="lastPage"
+                            :total-visible="8"
+                            class="my-5"
+                            ></v-pagination> -->
                         </v-tab-item>
                     </v-tabs-items>
                 </v-card>
@@ -45,18 +52,52 @@
 </template>
 
 <script>
-    import AllCourses from '../layouts/cards/Card.vue'
-
+    import AllSubjects from '../components/subjects/AllSubjects'
+    import Pagination from '../components/helper/Pagination'
+    import { mapState, mapGetters } from 'vuex'
     export default {
         data () {
             return {
                 tabs: null,
-                items: [
-                'All', 'Publish', 'For Approval', 'Drafts',
-                ],
+                items: [ 'All', 'Publish', 'For Approval', 'Drafts'],
+                page: 1,
             }
         },
-        components: { AllCourses }
+        components: { AllSubjects, Pagination },
+        computed: {
+            ...mapState('teacherSubject', [
+                'subjects'
+            ]),
+            currentPage: {
+                get() {
+                    return this.subjects.current_page
+                },
+                set(value) {
+                    this.$store.commit('teacherSubject/SET_CURRENT_PAGE', value)
+                }
+            },
+            lastPage: {
+                get() {
+                    return this.subjects.last_page
+                }
+            }
+        }, 
+        watch: {
+            currentPage(newVal, oldVal) {
+                this.paginatePage(newVal)
+            }
+        },
+        mounted() {
+            this.$store.dispatch('teacherSubject/get', 0)
+        },
+        methods: {
+            paginatePage(pageNumber) {
+                this.$store.dispatch('teacherSubject/get', pageNumber)
+            }
+        }
+        
+        
+        
     }
 </script>
 

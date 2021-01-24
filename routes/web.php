@@ -28,7 +28,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::group(['prefix'=>'teacher', 'middleware' => ['teacher']], function() {
-    // Route::get('/dashboard','Teacher\DashboardController@index');
+    Route::resource('/subject','Teacher\SubjectController');
 });
 
 Route::group(['prefix'=>'admin', 'middleware' => ['admin']], function() {

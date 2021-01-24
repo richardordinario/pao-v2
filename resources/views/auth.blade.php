@@ -25,5 +25,4 @@
     @endif
     <script>
         var GUARD = {!! json_encode($guard) !!}
-        console.log(GUARD)
     </script>

@@ -9,9 +9,13 @@
         </div>
 
         <div class="text-center mt-5 mb-0 pb-0">
-            <v-btn color="#4B9E56" class="white--text btn-normal text-center" rounded>
+            <v-btn 
+            @click.stop="dialog = true"
+            color="#4B9E56" 
+            class="white--text btn-normal text-center" 
+            rounded>
                 <v-icon small>mdi-plus</v-icon>
-                <span v-if="!mini" @click.stop="dialog = true">Add Course</span>
+                <span v-if="!mini" >Add Course</span>
             </v-btn>
         </div>
         <v-list dense rounded>
@@ -38,7 +42,8 @@
 </template>
 
 <script>
-    import SubjectDialog from '../cards/AddSubject'
+    import SubjectDialog from '../subjects/AddSubject'
+    import Navs from '../../../../apis/navigations/Teacher'
     export default {
         props: {
             mini: Boolean
@@ -46,45 +51,7 @@
         components: { SubjectDialog },
         data() {
             return {
-                navs: [
-                    {
-                        header: 'MAIN',
-                        list: [
-                            {
-                                title: 'Dashboard',
-                                icon: 'mdi-view-dashboard',
-                                name: 'Dashboard',
-                                route: '/home'
-                            },
-                            {
-                                title: 'Course Manager',
-                                icon: 'mdi-book',
-                                name: 'Courses',
-                                route: '/courses'
-                            },
-                            // {
-                            //     title: 'My Students',
-                            //     icon: 'mdi-school',
-                            //     route: '/students'
-                            // },
-                            {
-                                title: 'Forum',
-                                icon: 'mdi-comment-alert',
-                                route: 'Dashboard'
-                            },
-                        ]
-                    },
-                    {
-                        header: 'ACCOUNT',
-                        list: [
-                            {
-                                title: 'My Profile',
-                                icon: 'mdi-account',
-                                route: 'Dashboard'
-                            },
-                        ]
-                    }
-                ],
+                navs: Navs,
                 dialog: false
             }
         },

@@ -46,8 +46,8 @@
 </template>
 
 <script>
-    import DrawerLeft from './layouts/dashboard/DrawerLeft'
-    import Navbar from './layouts/dashboard/Navbar.vue'
+    import DrawerLeft from './components/dashboard/DrawerLeft'
+    import Navbar from './components/dashboard/Navbar.vue'
     export default {
         components: {
             Navbar,
@@ -64,7 +64,6 @@
         watch: {
             group() {
                 this.drawer = false;
-
             },
         },
     }

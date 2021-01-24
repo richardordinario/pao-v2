@@ -1,6 +1,6 @@
 <template>
     <section>
-        <v-row justify="left">
+        <v-row class="justify-content-center">
             <v-col cols="6" md="3" v-for="(item, i) in progress" :key="i">
                 <v-card class="success">
                     <v-card-text>
@@ -13,12 +13,12 @@
                 </v-card>
             </v-col>
         </v-row>
-        <v-row justify="left" class="my-10">
+        <v-row class="justify-content-left my-10">
             <v-col cols="12" md="10" lg="8">
                 <v-card>
                     <v-card-text>
                         <div class="text-h5 mb-5">Student List</div>
-                        <v-row justify="center">
+                        <v-row class="justify-content-center">
                             <v-col cols="12" sm="6" md="4" v-for="(list, i) in studentList" :key="i">
                                 <v-card elevation="0">
                                     <v-card-text>
