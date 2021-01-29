@@ -35,7 +35,7 @@
                         :key="item"
                         >
                             <AllSubjects :subjects="subjects.data" v-if="item ==='All'"/>
-                            <Pagination store="teacherSubject" collection="subjects"/>
+                            <Pagination v-if="subjects" store="teacherSubject" collection="subjects"/>
                         </v-tab-item>
                     </v-tabs-items>
                 </v-card>

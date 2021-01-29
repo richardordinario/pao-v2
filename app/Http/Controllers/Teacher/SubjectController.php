@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Teacher;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Teacher\SubjectRequest;
 use Illuminate\Http\Request;
-use App\Model\Subject;
+use App\Models\Subject;
+use App\Teacher;
+use Auth;
+
 class SubjectController extends Controller
 {
     /**
@@ -15,6 +18,15 @@ class SubjectController extends Controller
      */
     public function index()
     {
+
+        // dd(Teacher::find(1)->mySubject);
+        // return Teacher::find(1)->mySubject;
+        // $teacher = Teacher::where('id', Auth::guard('teacher')->user()->id)->first();
+        // $teacher = Teacher::first();
+        //dd($teacher);
+        // $teacher->image()->create([
+        //     'url' => 'teacher.jpg'
+        // ]);
         $data = Subject::paginate(8);
         return response()->json($data);
     }
@@ -38,6 +50,7 @@ class SubjectController extends Controller
     public function store(SubjectRequest $request)
     {
         Subject::create([
+            'teacher_id' => Auth::guard('teacher')->user()->id,
             'subject_name' => $request->subject_name
         ]);
 

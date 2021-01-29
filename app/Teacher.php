@@ -15,6 +15,8 @@ class Teacher extends Authenticatable
      *
      * @var array
      */
+    protected $guarded = [];
+
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -37,5 +39,15 @@ class Teacher extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new TeacherResetPassword($token));
+    }
+
+    function mySubject() 
+    {
+        return $this->hasMany('App\Models\Subject');
+    }
+
+    public function image() 
+    {
+        return $this->morphOne('App\Models\Image', 'imageable');
     }
 }

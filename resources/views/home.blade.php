@@ -29,7 +29,6 @@
     @if(Auth::guard('admin')->check())
     <script src="{{asset('js/admin.js')}}"></script>
     @endif
-    <!-- <script src="{{asset('js/login.js')}}"></script> -->
     
 </body>
 </html>

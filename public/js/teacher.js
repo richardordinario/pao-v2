@@ -42265,12 +42265,14 @@ var render = function() {
                               })
                             : _vm._e(),
                           _vm._v(" "),
-                          _c("Pagination", {
-                            attrs: {
-                              store: "teacherSubject",
-                              collection: "subjects"
-                            }
-                          })
+                          _vm.subjects
+                            ? _c("Pagination", {
+                                attrs: {
+                                  store: "teacherSubject",
+                                  collection: "subjects"
+                                }
+                              })
+                            : _vm._e()
                         ],
                         1
                       )
